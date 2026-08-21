@@ -11,7 +11,6 @@ function ankizy_generation_setup() {
             'primary' => 'Menu principal',
         )
     );
-
 }
 
 add_action(
@@ -22,11 +21,21 @@ add_action(
 
 function ankizy_generation_enqueue_assets() {
 
+    // CSS principal
     wp_enqueue_style(
         'ankizy-style',
-        get_stylesheet_uri()
+        get_stylesheet_uri(),
+        array(),
+        '1.0'
     );
 
+    // Google Fonts
+    wp_enqueue_style(
+        'ankizy-fonts',
+        'https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Nunito:wght@400;600;700;800&family=Poppins:wght@500;600&display=swap',
+        array(),
+        null
+    );
 }
 
 add_action(

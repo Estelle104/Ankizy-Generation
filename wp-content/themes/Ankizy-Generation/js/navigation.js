@@ -22,7 +22,6 @@ document.addEventListener('DOMContentLoaded', function () {
         );
     });
 
-    // Fermer le menu lorsqu'on clique sur un lien
     nav.querySelectorAll('a').forEach(function (link) {
 
         link.addEventListener('click', function () {

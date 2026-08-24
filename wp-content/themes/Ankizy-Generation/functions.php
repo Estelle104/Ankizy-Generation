@@ -1,6 +1,7 @@
 <?php
 
-function ankizy_generation_setup() {
+function ankizy_generation_setup()
+{
 
     add_theme_support('title-tag');
 
@@ -19,7 +20,8 @@ add_action(
 );
 
 
-function ankizy_generation_enqueue_assets() {
+function ankizy_generation_enqueue_assets()
+{
 
     // CSS principal
     wp_enqueue_style(
@@ -29,6 +31,14 @@ function ankizy_generation_enqueue_assets() {
         '1.0'
     );
 
+    wp_enqueue_script(
+        'ankizy-navigation',
+        get_template_directory_uri() . '/js/navigation.js',
+        array(),
+        '1.0',
+        true
+    );
+    
     // Google Fonts
     wp_enqueue_style(
         'ankizy-fonts',
@@ -43,7 +53,8 @@ add_action(
     'ankizy_generation_enqueue_assets'
 );
 
-function ankizy_generation_menu_link_attributes($atts, $item, $args) {
+function ankizy_generation_menu_link_attributes($atts, $item, $args)
+{
 
     if ($args->theme_location === 'primary') {
         $atts['class'] = 'main-nav__link';

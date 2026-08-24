@@ -37,7 +37,7 @@
             </a>
 
 
-            <nav class="main-nav" aria-label="Navigation principale">
+            <nav class="main-nav" class="main-nav"  aria-label="Navigation principale">
 
                 <?php
                 wp_nav_menu(array(

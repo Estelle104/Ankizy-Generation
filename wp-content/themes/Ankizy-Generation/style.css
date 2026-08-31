@@ -1712,10 +1712,11 @@ p {
 }
 
 
-.grid > .wp-block-column {
+.grid>.wp-block-column {
   width: 100% !important;
 }
-.grid > .wp-block-column > * {
+
+.grid>.wp-block-column>* {
   height: 100%;
   box-sizing: border-box;
 }

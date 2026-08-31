@@ -2,40 +2,41 @@
 
 <main id="main-content">
 
-    <?php
-    while ( have_posts() ) :
-        the_post();
-    ?>
+<?php
+while ( have_posts() ) :
+	the_post();
+?>
 
-        <div class="page-hero">
-            <div class="container">
+	<div class="page-hero">
+		<div class="container">
 
-                <p class="breadcrumb">
-                    <a href="<?php echo esc_url(home_url('/')); ?>">
-                        Accueil
-                    </a>
-                    ›
-                    <span class="is-current">
-                        <?php the_title(); ?>
-                    </span>
-                </p>
+			<p class="breadcrumb">
+				<a href="<?php echo esc_url( home_url( '/' ) ); ?>">
+					Accueil
+				</a>
+				›
+				<span class="is-current">
+					<?php the_title(); ?>
+				</span>
+			</p>
 
-                <h1 class="page-hero__title">
-                    <?php the_title(); ?>
-                </h1>
+			<h1 class="page-hero__title">
+				<?php the_title(); ?>
+			</h1>
 
-            </div>
-        </div>
+		</div>
+	</div>
 
-        <section class="section">
-            <div class="container">
+	<?php
+	// IMPORTANT : plus de <section class="section"><div class="container">
+	// autour de the_content(). Chaque bloc "Groupe" construit dans
+	// l'éditeur gère désormais lui-même sa largeur (pleine largeur ou
+	// largeur du contenu) et sa couleur de fond (vert ou blanc), pour
+	// recréer l'alternance vert/blanc directement depuis Gutenberg.
+	the_content();
+	?>
 
-                <?php the_content(); ?>
-
-            </div>
-        </section>
-
-    <?php endwhile; ?>
+<?php endwhile; ?>
 
 </main>
 

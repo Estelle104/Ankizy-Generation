@@ -1674,3 +1674,48 @@ p {
     padding-block: var(--space-sm);
   }
 }
+
+/* --------------------------------------------------------------------------
+   CORRECTIF — bloc Groupe de Gutenberg avec sous-conteneur caché
+   Certaines versions du bloc Groupe enveloppent leurs enfants dans une
+   balise .wp-block-group__inner-container. Ces règles répètent display:grid
+   / display:flex sur ce sous-conteneur pour que grid--N, doc-item et
+   cta-banner fonctionnent, que le bloc utilisé soit Colonnes OU Groupe.
+-------------------------------------------------------------------------- */
+.grid>.wp-block-group__inner-container {
+  display: grid;
+  gap: var(--space-md);
+}
+
+.grid--2>.wp-block-group__inner-container {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid--3>.wp-block-group__inner-container {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid--4>.wp-block-group__inner-container {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.doc-item>.wp-block-group__inner-container,
+.cta-banner>.wp-block-group__inner-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.wp-block-group>.wp-block-group__inner-container {
+  display: contents;
+}
+
+
+.grid > .wp-block-column {
+  width: 100% !important;
+}
+.grid > .wp-block-column > * {
+  height: 100%;
+  box-sizing: border-box;
+}

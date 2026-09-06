@@ -1720,3 +1720,6 @@ p {
   height: 100%;
   box-sizing: border-box;
 }
+.wp-block-post-template {
+  gap: 1.5rem !important;
+}

@@ -1,4 +1,12 @@
-<?php get_header(); ?>
+<?php
+/**
+ * Single actuality template.
+ *
+ * @package Ankizy_Generation
+ */
+
+get_header();
+?>
 
 <main id="main-content">
 
@@ -6,34 +14,48 @@
 while ( have_posts() ) :
 	the_post();
 	$categories = get_the_category();
-	$cat_name   = ! empty( $categories ) ? $categories[0]->name : '';
 ?>
 
 	<div class="page-hero">
 		<div class="container">
 
 			<p class="breadcrumb">
-				<a href="<?php echo esc_url( home_url( '/' ) ); ?>">Accueil</a>
+				<a href="<?php echo esc_url( home_url( '/' ) ); ?>">
+					<?php esc_html_e( 'Accueil', 'ankizy-generation' ); ?>
+				</a>
 				›
-				<a href="<?php echo esc_url( home_url( '/nos-programmes/' ) ); ?>">Nos programmes</a>
+				<a href="<?php echo esc_url( home_url( '/actualites/' ) ); ?>">
+					<?php esc_html_e( 'Actualités', 'ankizy-generation' ); ?>
+				</a>
 				›
 				<span class="is-current"><?php the_title(); ?></span>
 			</p>
 
-			<?php if ( $cat_name ) : ?>
-				<span class="eyebrow"><?php echo esc_html( $cat_name ); ?></span>
+			<?php if ( ! empty( $categories ) ) : ?>
+				<div class="entry-taxonomies">
+					<?php foreach ( $categories as $category ) : ?>
+						<span class="tag"><?php echo esc_html( $category->name ); ?></span>
+					<?php endforeach; ?>
+				</div>
 			<?php endif; ?>
 
 			<h1 class="page-hero__title"><?php the_title(); ?></h1>
+			<time class="card__date" datetime="<?php echo esc_attr( get_the_date( DATE_W3C ) ); ?>">
+				<?php echo esc_html( get_the_date() ); ?>
+			</time>
 
 		</div>
 	</div>
 
-	<section class="section">
-		<div class="container">
+	<article <?php post_class( 'section' ); ?>>
+		<div class="container entry-content">
+			<?php if ( has_post_thumbnail() ) : ?>
+				<?php the_post_thumbnail( 'large', array( 'class' => 'entry-featured-image' ) ); ?>
+			<?php endif; ?>
+
 			<?php the_content(); ?>
 		</div>
-	</section>
+	</article>
 
 <?php endwhile; ?>
 

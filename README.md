@@ -26,3 +26,15 @@ Le développeur suivant :
 3. Commencer son travail.
 
 Ne jamais travailler simultanément sur la base WordPress locale.
+
+sauvegarder
+docker compose exec -T db mariadb-dump -u root -prootpassword wordpress > database/wordpress-dev-backup.sql
+
+supprimer base
+docker compose exec db mariadb -u root -prootpassword -e "DROP DATABASE IF EXISTS wordpress;"
+
+recreer base
+docker compose exec db mariadb -u root -prootpassword -e "CREATE DATABASE wordpress CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;"
+
+verification
+sudo docker compose exec db mariadb -u root -prootpassword wordpress -e "SHOW TABLES;"

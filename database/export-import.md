@@ -8,5 +8,5 @@ docker compose exec -T db mariadb -u root -prootpassword wordpress < database/wo
 ```
 docker compose down -v
 
-docker compose up -d
 ```
+docker compose up -d

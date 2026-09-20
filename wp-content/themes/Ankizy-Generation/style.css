@@ -5,6 +5,7 @@ Author: Ankizy Génération
 Description: Thème personnalisé pour le site Ankizy Génération.
 Version: 1.0
 Text Domain: ankizy-generation
+Domain Path: /languages
 */
 /* ==========================================================================
    ANKIZY GÉNÉRATION — PROTOTYPE UI (CHARTE GRAPHIQUE OFFICIELLE)
@@ -698,6 +699,7 @@ p {
 }
 
 .lang-switch__btn {
+  display: inline-block;
   background: none;
   border: none;
   padding: 0.35em 0.7em;
@@ -707,15 +709,17 @@ p {
   cursor: pointer;
   color: var(--color-text-muted);
   transition: background-color 0.15s ease, color 0.15s ease;
+  text-decoration: none;
 }
 
-.lang-switch__btn[aria-pressed="true"] {
+.lang-switch__btn[aria-current="page"] {
   background: var(--color-action);
   color: #fff;
 }
 
-.lang-switch__btn:hover:not([aria-pressed="true"]) {
+.lang-switch__btn:hover:not([aria-current="page"]) {
   background: var(--color-bg);
+  text-decoration: none;
 }
 
 /* Bouton hamburger (mobile) */

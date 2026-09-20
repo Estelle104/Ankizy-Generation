@@ -20,11 +20,11 @@ while ( have_posts() ) :
 		<div class="container">
 
 			<p class="breadcrumb">
-				<a href="<?php echo esc_url( home_url( '/' ) ); ?>">
+				<a href="<?php echo esc_url( ankizy_generation_get_home_url() ); ?>">
 					<?php esc_html_e( 'Accueil', 'ankizy-generation' ); ?>
 				</a>
 				›
-				<a href="<?php echo esc_url( home_url( '/actualites/' ) ); ?>">
+				<a href="<?php echo esc_url( ankizy_generation_get_translated_page_url( 'actualites' ) ); ?>">
 					<?php esc_html_e( 'Actualités', 'ankizy-generation' ); ?>
 				</a>
 				›

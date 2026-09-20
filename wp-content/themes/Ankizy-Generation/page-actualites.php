@@ -1,6 +1,9 @@
 <?php
 /**
- * Dynamic news listing for the page whose slug is "actualites".
+ * Dynamic news listing page template.
+ *
+ * Template Name: Actualités
+ * Template Post Type: page
  *
  * @package Ankizy_Generation
  */
@@ -45,7 +48,7 @@ while ( have_posts() ) :
 		<div class="page-hero">
 			<div class="container">
 				<p class="breadcrumb">
-					<a href="<?php echo esc_url( home_url( '/' ) ); ?>">
+					<a href="<?php echo esc_url( ankizy_generation_get_home_url() ); ?>">
 						<?php esc_html_e( 'Accueil', 'ankizy-generation' ); ?>
 					</a>
 					›

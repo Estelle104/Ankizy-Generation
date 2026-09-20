@@ -11,7 +11,7 @@ while ( have_posts() ) :
 		<div class="container">
 
 			<p class="breadcrumb">
-				<a href="<?php echo esc_url( home_url( '/' ) ); ?>">
+				<a href="<?php echo esc_url( ankizy_generation_get_home_url() ); ?>">
 					Accueil
 				</a>
 				›
